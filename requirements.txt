@@ -1,3 +1,5 @@
 PyQt6>=6.4.0
 click>=8.1.7
-PyPDF2>=2.11.1
+PyMuPDF>=1.19.0
+pypdf2~=3.0.1
+setuptools~=57.4.0

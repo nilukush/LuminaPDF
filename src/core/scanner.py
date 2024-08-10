@@ -1,6 +1,5 @@
 from src.utils.file_system import traverse_file_system, get_file_info
 from src.core.validator import is_pdf
-from src.core.sorter import sort_pdf_files
 from src.utils.logger import scanner_logger
 
 
@@ -13,6 +12,6 @@ def scan_for_pdfs(root_path):
             if file_info:
                 pdf_files.append(file_info)
 
-    sorted_pdfs = sort_pdf_files(pdf_files)
-    scanner_logger.info(f"PDF scan completed. Found {len(sorted_pdfs)} PDF files.")
-    return sorted_pdfs
+    pdf_files.sort(key=lambda x: x['modified'], reverse=True)
+    scanner_logger.info(f"PDF scan completed. Found {len(pdf_files)} PDF files.")
+    return pdf_files
